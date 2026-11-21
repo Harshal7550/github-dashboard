@@ -1,0 +1,18 @@
+/* responsive.css — mobile and tablet breakpoints */
+@media (max-width: 860px) {
+  .grid, .grid.two-col { grid-template-columns: 1fr; }
+  .repo-list { grid-template-columns: 1fr; }
+  .search { width: 100%; }
+  .search input { flex: 1; min-width: 0; }
+}
+
+@media (max-width: 560px) {
+  .container { padding: 16px; }
+  .topbar { padding: 14px 16px; }
+  .profile-head { flex-direction: column; }
+  .profile-meta { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .controls { width: 100%; }
+  .controls input, .controls select { flex: 1; }
+  .language-row { grid-template-columns: 90px 1fr 42px; }
+}

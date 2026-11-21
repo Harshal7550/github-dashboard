@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GitHub Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/dashboard.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">⬢</span>
+      <div>
+        <h1>GitHub Dashboard</h1>
+        <p>Profile, repositories &amp; activity at a glance</p>
+      </div>
+    </div>
+    <form id="search-form" class="search">
+      <input id="username-input" type="text" placeholder="GitHub username — e.g. torvalds" value="torvalds" autocomplete="off" />
+      <button type="submit">Load</button>
+    </form>
+  </header>
+
+  <main class="container">
+    <section id="status" class="status hidden"></section>
+
+    <section class="grid">
+      <article class="card profile-card">
+        <div class="profile-head">
+          <img id="avatar" src="https://avatars.githubusercontent.com/u/1024025?v=4" alt="GitHub avatar" />
+          <div>
+            <h2 id="profile-name">Loading…</h2>
+            <a id="profile-login" href="#" target="_blank" rel="noreferrer">@username</a>
+            <p id="profile-bio" class="muted"></p>
+          </div>
+        </div>
+        <dl class="profile-meta">
+          <div><dt>Company</dt><dd id="profile-company">—</dd></div>
+          <div><dt>Location</dt><dd id="profile-location">—</dd></div>
+          <div><dt>Blog</dt><dd id="profile-blog">—</dd></div>
+          <div><dt>Joined</dt><dd id="profile-created">—</dd></div>
+        </dl>
+        <div class="token-box">
+          <label for="token-input">Personal access token <span class="muted">(optional, raises API limits)</span></label>
+          <input id="token-input" type="password" placeholder="ghp_…" autocomplete="off" />
+          <button id="save-token" type="button">Save token</button>
+        </div>
+      </article>
+
+      <article class="card stats-card">
+        <h2>Overview</h2>
+        <div class="stats">
+          <div class="stat"><strong id="stat-repos">0</strong><span>Public repos</span></div>
+          <div class="stat"><strong id="stat-followers">0</strong><span>Followers</span></div>
+          <div class="stat"><strong id="stat-following">0</strong><span>Following</span></div>
+          <div class="stat"><strong id="stat-stars">0</strong><span>Total stars</span></div>
+          <div class="stat"><strong id="stat-forks">0</strong><span>Total forks</span></div>
+          <div class="stat"><strong id="stat-gists">0</strong><span>Public gists</span></div>
+        </div>
+        <h3>Top languages</h3>
+        <div id="languages" class="languages"></div>
+        <p class="muted small">Languages are counted across the loaded repositories.</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Repositories</h2>
+        <div class="controls">
+          <input id="repo-filter" type="text" placeholder="Filter repos…" />
+          <select id="repo-sort">
+            <option value="stars">Sort: Most stars</option>
+            <option value="updated">Sort: Recently updated</option>
+            <option value="name">Sort: Name A–Z</option>
+            <option value="forks">Sort: Most forks</option>
+          </select>
+        </div>
+      </div>
+      <div id="repo-list" class="repo-list"></div>
+      <p id="repo-empty" class="muted hidden">No repositories match that filter.</p>
+    </section>
+
+    <section class="grid two-col">
+      <article class="card">
+        <h2>Recent activity</h2>
+        <ul id="activity-list" class="activity"></ul>
+      </article>
+      <article class="card">
+        <h2>How to use</h2>
+        <ol class="howto">
+          <li>Open <code>index.html</code> in a browser — no build step needed.</li>
+          <li>Type any public GitHub username and press Load.</li>
+          <li>Optionally add a personal access token for higher rate limits.</li>
+          <li>Filter and sort repositories from the controls above the list.</li>
+        </ol>
+        <p class="muted small">Data comes live from the public GitHub REST API. Private repos need a token with <code>repo</code> scope.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Built with the GitHub REST API • <span id="year"></span> GitHub Dashboard</p>
+  </footer>
+
+  <script src="js/github-api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

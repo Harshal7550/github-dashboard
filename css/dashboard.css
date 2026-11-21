@@ -1,0 +1,134 @@
+/* dashboard.css — layout, cards, profile, stats, repos and activity */
+.topbar {
+  align-items: center;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--card-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+  padding: 18px 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand { align-items: center; display: flex; gap: 12px; }
+.brand h1 { margin: 0; }
+.brand p { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.logo {
+  align-items: center;
+  background: var(--accent);
+  border-radius: 10px;
+  display: grid;
+  font-size: 1.4rem;
+  height: 44px;
+  place-items: center;
+  width: 44px;
+}
+
+.search { display: flex; gap: 8px; }
+.search input { min-width: 260px; }
+
+.container { margin: 0 auto; max-width: 1100px; padding: 24px; }
+
+.status {
+  background: #3a2b00;
+  border: 1px solid var(--yellow);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  padding: 12px 16px;
+}
+.status.error { background: #3d1215; border-color: var(--red); }
+
+.grid { display: grid; gap: 18px; grid-template-columns: 1fr 1.2fr; margin-bottom: 18px; }
+.grid.two-col { grid-template-columns: 1fr 1fr; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 18px;
+  padding: 20px;
+}
+.grid .card { margin-bottom: 0; }
+
+.profile-head { display: flex; gap: 16px; }
+.profile-head img {
+  border: 2px solid var(--card-border);
+  border-radius: 50%;
+  height: 96px;
+  object-fit: cover;
+  width: 96px;
+}
+.profile-head h2 { margin-bottom: 2px; }
+
+.profile-meta {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
+  margin: 18px 0;
+}
+.profile-meta div { background: #0d1117; border-radius: 8px; padding: 10px; }
+.profile-meta dt { color: var(--muted); font-size: 0.8rem; }
+.profile-meta dd { margin: 2px 0 0; overflow-wrap: anywhere; }
+
+.token-box { border-top: 1px solid var(--card-border); padding-top: 14px; }
+.token-box label { display: block; font-size: 0.9rem; margin-bottom: 8px; }
+.token-box input { width: 100%; }
+.token-box button { margin-top: 8px; width: 100%; }
+
+.stats { display: grid; gap: 10px; grid-template-columns: repeat(3, 1fr); }
+.stat {
+  background: #0d1117;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 14px;
+  text-align: center;
+}
+.stat strong { display: block; font-size: 1.5rem; }
+.stat span { color: var(--muted); font-size: 0.85rem; }
+
+.languages { display: grid; gap: 8px; margin-top: 8px; }
+.language-row { align-items: center; display: grid; gap: 10px; grid-template-columns: 110px 1fr 48px; font-size: 0.9rem; }
+.language-bar { background: #0d1117; border-radius: 999px; height: 8px; overflow: hidden; }
+.language-bar span { background: var(--accent); display: block; height: 100%; }
+
+.section-head {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.section-head h2 { margin: 0; }
+.controls { display: flex; gap: 8px; flex-wrap: wrap; }
+
+.repo-list { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+.repo {
+  background: #0d1117;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 14px;
+}
+.repo h3 { font-size: 1rem; letter-spacing: 0; margin-bottom: 6px; text-transform: none; }
+.repo h3 a { color: var(--text); }
+.repo p { color: var(--muted); font-size: 0.9rem; min-height: 2.6em; }
+.repo-meta { display: flex; flex-wrap: wrap; gap: 12px; font-size: 0.85rem; }
+.repo-meta .lang-dot { display: inline-block; border-radius: 50%; height: 10px; margin-right: 4px; width: 10px; }
+
+.activity { list-style: none; margin: 0; padding: 0; }
+.activity li {
+  border-bottom: 1px solid var(--card-border);
+  font-size: 0.92rem;
+  padding: 10px 0;
+}
+.activity li:last-child { border-bottom: 0; }
+.activity time { color: var(--muted); display: block; font-size: 0.8rem; }
+
+.howto { padding-left: 20px; }
+.howto li { margin-bottom: 8px; }
+
+.footer { color: var(--muted); padding: 8px 24px 28px; text-align: center; }
